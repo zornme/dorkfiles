@@ -31,4 +31,7 @@ fi
 
 alias ll='ls -hl'
 export EDITOR=vim
-fortune ~/.fortunes/fortunes
+
+if [ -d fortune ]; then
+  fortune ~/.fortunes/fortunes
+fi
