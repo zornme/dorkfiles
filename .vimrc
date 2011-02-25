@@ -57,8 +57,10 @@ set matchtime=3
 let g:loaded_matchparen=1
 
 " show tabs and trailing
-set listchars=tab:▸\ ,trail:·
-set list
+if has('multi_byte')
+  set listchars=tab:▸\ ,trail:·
+  set list
+endif
 
 " enter key to list buffers
 map  :ls
