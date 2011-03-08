@@ -58,6 +58,7 @@ let g:loaded_matchparen=1
 
 " show tabs and trailing
 if has('multi_byte')
+  scriptencoding utf-8
   set listchars=tab:▸\ ,trail:·
   set list
 endif
