@@ -40,6 +40,4 @@ alias ls="ls $LS_FLAGS"
 alias ll="ls -l"
 export EDITOR=vim
 
-if [ -d fortune ]; then
-  fortune ~/.fortunes/fortunes
-fi
+fortune ~/.fortunes/fortunes 2> /dev/null
