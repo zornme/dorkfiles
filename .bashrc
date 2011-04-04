@@ -16,9 +16,9 @@ if [ -d /usr/local/bin ] && [ -d /usr/local/sbin ]; then
   export MANPATH=$MANPATH:/usr/local/man
 fi
 
-# TODO update
+# TODO find less hacky detection method
 if [ X$TERM_PROGRAM = X"Apple_Terminal" ]; then
-  alias ls='ls -G'
+  export LS_FLAGS="-G"
 fi
 
 # Add trailing slashes to directories and asterisks to executables on HP-UX
