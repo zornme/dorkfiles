@@ -3,6 +3,7 @@
 
 # set prompt to working directory & hipster lightning bolt
 PS1='\[\033[32m\]\w \[\033[33m\]⚡ \[\033[00m\]'
+[[ -s "$HOME/.ps1" ]] && source "$HOME/.ps1"
 
 # Extend path
 if [ -d ~/bin ]; then
