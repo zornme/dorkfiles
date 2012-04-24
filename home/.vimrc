@@ -76,3 +76,9 @@ map <F2> :%s/\s\+$//g
 
 " jj as <Esc> in insert mode
 imap jj <Esc>
+
+"" keep swapfiles from cluttering up pwd
+set dir=~/.vim/.swap//,/var/tmp//,/tmp//,.
+
+" autoload changed files
+set autoread
