@@ -56,6 +56,11 @@ set matchtime=3
 " don't highlight matching parenthesis
 let g:loaded_matchparen=1
 
+" make ctrlp follow symlinks
+let g:ctrlp_follow_symlinks=1
+" don't let ctrlp change its working directory
+let g:ctrlp_working_path_mode=0
+
 " show tabs and trailing
 if has('multi_byte')
   scriptencoding utf-8
