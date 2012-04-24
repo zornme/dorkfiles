@@ -1,14 +1,16 @@
 # return if shell isn't interactive
 [ -z "$PS1" ] && return
 
-# Set prompt
-if [ $TERM != "hp" ]; then
-  PS1='\[\033[32m\]\u@\h \[\033[31m\]\w \$ \[\033[00m\]'
-fi
+# set prompt to working directory & hipster lightning bolt
+PS1='\[\033[32m\]\w \[\033[33m\]⚡ \[\033[00m\]'
 
 # Extend path
 if [ -d ~/bin ]; then
   export PATH=:~/bin:$PATH
+fi
+
+if [ -d /usr/local/share/python ]; then
+  export PATH=:/usr/local/share/python:$PATH
 fi
 
 if [ -d /usr/local/bin ] && [ -d /usr/local/sbin ]; then
@@ -19,11 +21,6 @@ fi
 # TODO find less hacky detection method
 if [ X$TERM_PROGRAM = X"Apple_Terminal" ]; then
   export LS_FLAGS="-G"
-fi
-
-# Add trailing slashes to directories and asterisks to executables on HP-UX
-if [[ `uname` =~ HP-UX ]]; then
-  export LS_FLAGS="-F"
 fi
 
 ls --color=auto /dev/null > /dev/null 2>&1
@@ -38,6 +35,5 @@ fi
 
 alias ls="ls $LS_FLAGS"
 alias ll="ls -l"
+alias ackf="ack --follow"
 export EDITOR=vim
-
-fortune ~/.fortunes/fortunes 2> /dev/null

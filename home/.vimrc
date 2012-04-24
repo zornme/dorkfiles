@@ -17,7 +17,7 @@ set mouse=a
 set nowrap
 
 if has('gui_running')
-  colorscheme Tomorrow-Night-Eighties
+  colorscheme moria
   set guifont=Droid\ Sans\ Mono:h12
   set guioptions-=T
   set columns=85
