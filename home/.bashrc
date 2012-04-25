@@ -1,7 +1,7 @@
 # return if shell isn't interactive
 [ -z "$PS1" ] && return
 
-# set prompt to working directory & hipster lightning bolt
+# ~ ⚡
 PS1='\[\033[32m\]\w \[\033[33m\]⚡ \[\033[00m\]'
 
 # Extend path
