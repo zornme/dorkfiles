@@ -1,3 +1,5 @@
 [[ -r "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-[[ -r `brew --prefix`/etc/bash_completion ]] && `brew --prefix`/etc/bash_completion
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+  . `brew --prefix`/etc/bash_completion
+fi
 [[ -r ~/.bashrc ]] && source ~/.bashrc
