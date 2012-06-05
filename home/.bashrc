@@ -34,6 +34,7 @@ if [ $? -eq 0 ]; then
   export LS_FLAGS="--human-readable $LS_FLAGS"
 fi
 
+which ack-grep &> /dev/null && alias ack="ack-grep"
 alias ls="ls $LS_FLAGS"
 alias ll="ls -l"
 alias ackf="ack --follow"
