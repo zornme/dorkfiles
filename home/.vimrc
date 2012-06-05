@@ -10,8 +10,8 @@ colorscheme desert
 set background=dark
 set number
 set numberwidth=4
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set expandtab " father forgive me for i have sinned
 set mouse=a
 set nowrap
@@ -82,3 +82,8 @@ set dir=~/.vim/.swap//,/var/tmp//,/tmp//,.
 
 " autoload changed files
 set autoread
+
+" Search mappings: These will make it so that going to the next one in a
+" search will center on the line it's found in.
+map N Nzz
+map n nzz
