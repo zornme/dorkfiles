@@ -22,6 +22,8 @@ if has('gui_running')
   set guioptions-=T
   set columns=85
   set lines=42
+  highlight ColorColumn guibg=#2f2f2f
+  set colorcolumn=80
 endif
 
 " shut the fuck up
