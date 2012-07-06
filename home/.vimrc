@@ -22,7 +22,7 @@ if has('gui_running')
   set guioptions-=T
   set columns=85
   set lines=42
-  highlight ColorColumn guibg=#2f2f2f
+  highlight ColorColumn guibg=#252525
   set colorcolumn=80
 endif
 
@@ -89,3 +89,9 @@ set autoread
 " search will center on the line it's found in.
 map N Nzz
 map n nzz
+
+" Show blame for highlighted lines.
+" http://robots.thoughtbot.com/post/159805638/integrating-vim-into-your-life
+vmap <Leader>b :<C-U>!svn blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+vmap <Leader>g :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+vmap <Leader>h :<C-U>!hg blame -fu <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
