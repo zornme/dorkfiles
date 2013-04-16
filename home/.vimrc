@@ -85,11 +85,6 @@ set dir=~/.vim/.swap//,/var/tmp//,/tmp//,.
 " autoload changed files
 set autoread
 
-" Search mappings: These will make it so that going to the next one in a
-" search will center on the line it's found in.
-map N Nzz
-map n nzz
-
 " Show blame for highlighted lines.
 " http://robots.thoughtbot.com/post/159805638/integrating-vim-into-your-life
 vmap <Leader>b :<C-U>!svn blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
