@@ -39,4 +39,3 @@ alias ls="ls $LS_FLAGS"
 alias ll="ls -l"
 alias ackf="ack --follow"
 export EDITOR=vim
-source /usr/local/share/python/virtualenvwrapper.sh
