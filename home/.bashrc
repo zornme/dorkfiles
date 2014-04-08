@@ -10,10 +10,6 @@ if [ -d ~/bin ]; then
   export PATH=:~/bin:$PATH
 fi
 
-if [ -d /usr/local/share/python ]; then
-  export PATH=:/usr/local/share/python:$PATH
-fi
-
 if [ -d /usr/local/bin ] && [ -d /usr/local/sbin ]; then
   export PATH=/usr/local/bin:/usr/local/sbin:$PATH
   export MANPATH=$MANPATH:/usr/local/man
