@@ -3,17 +3,10 @@
 
 # ~ ⚡
 PS1='\[\033[32m\]\w \[\033[33m\]⚡ \[\033[00m\]'
-[[ -s "$HOME/.ps1" ]] && source "$HOME/.ps1"
 
 # Extend path
-if [ -d ~/bin ]; then
-  export PATH=:~/bin:$PATH
-fi
-
-if [ -d /usr/local/bin ] && [ -d /usr/local/sbin ]; then
-  export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-  export MANPATH=$MANPATH:/usr/local/man
-fi
+export PATH=~/bin:/usr/local/bin:/usr/local/sbin:$PATH
+export MANPATH=$MANPATH:/usr/local/man
 
 # TODO find less hacky detection method
 if [ X$TERM_PROGRAM = X"Apple_Terminal" ]; then
@@ -31,7 +24,10 @@ if [ $? -eq 0 ]; then
 fi
 
 which ack-grep &> /dev/null && alias ack="ack-grep"
+
 alias ls="ls $LS_FLAGS"
-alias ll="ls -l"
 alias ackf="ack --follow"
 export EDITOR=vim
+
+# For any local unversioned modifications
+[[ -s "$HOME/.bashrc_local" ]] && source "$HOME/.bashrc_local"
