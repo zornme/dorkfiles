@@ -85,6 +85,9 @@ set dir=~/.vim/.swap//,/var/tmp//,/tmp//,.
 " autoload changed files
 set autoread
 
+" Search upward for tags until reaching the home directory
+set tags+=tags;$HOME
+
 " Show blame for highlighted lines.
 " http://robots.thoughtbot.com/post/159805638/integrating-vim-into-your-life
 vmap <Leader>b :<C-U>!svn blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
