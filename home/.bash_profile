@@ -3,3 +3,4 @@ which brew &> /dev/null && [[ -f `brew --prefix`/etc/bash_completion ]] && sourc
 [[ -r ~/.bashrc ]] && source ~/.bashrc
 [[ -r ~/perl5/perlbrew/etc/bashrc ]] && source ~/perl5/perlbrew/etc/bashrc
 [[ -r /usr/local/share/python/virtualenvwrapper.sh ]] && source /usr/local/share/python/virtualenvwrapper.sh
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
