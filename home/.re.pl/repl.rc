@@ -1,0 +1,8 @@
+use strict;
+use warnings;
+
+load_plugin qw(
+    Colors
+    LexEnv
+    ReadLineHistory
+);
