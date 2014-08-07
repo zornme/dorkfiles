@@ -1,8 +1,18 @@
 set nocompatible
 filetype off
-" use pathogen to easily handle plugins in .vim/bundle
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'vim-scripts/moria'
+Plugin 'ervandew/supertab'
+Plugin 'kien/ctrlp.vim'
+Plugin 'matchit.zip'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'vim-scripts/Align'
+Plugin 'jpalardy/vim-slime'
+
+call vundle#end()
 filetype plugin indent on
 
 syntax on
