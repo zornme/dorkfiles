@@ -11,6 +11,7 @@ Plugin 'matchit.zip'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'vim-scripts/Align'
 Plugin 'jpalardy/vim-slime'
+Plugin 'tpope/vim-fugitive'
 
 call vundle#end()
 filetype plugin indent on
