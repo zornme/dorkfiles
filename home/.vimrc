@@ -12,6 +12,10 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'vim-scripts/Align'
 Plugin 'jpalardy/vim-slime'
 Plugin 'tpope/vim-fugitive'
+Plugin 'bling/vim-airline'
+
+" So vim-airline always shows
+set laststatus=2
 
 call vundle#end()
 filetype plugin indent on
