@@ -13,6 +13,10 @@ Plugin 'vim-scripts/Align'
 Plugin 'jpalardy/vim-slime'
 Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
+Plugin 'scrooloose/syntastic'
+
+let g:syntastic_enable_perl_checker = 1
+let g:syntastic_perl_checkers = ['perl', 'podchecker']
 
 " So vim-airline always shows
 set laststatus=2
