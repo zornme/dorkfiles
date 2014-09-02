@@ -4,11 +4,6 @@
 # ~ ⚡
 PS1='\[\033[32m\]\w \[\033[33m\]⚡ \[\033[00m\]'
 
-# Extend path
-export PATH=~/bin:/usr/local/bin:/usr/local/sbin:$PATH
-export MANPATH=$MANPATH:/usr/local/man
-
-# TODO find less hacky detection method
 if [ X$TERM_PROGRAM = X"Apple_Terminal" ]; then
   export LS_FLAGS="-G"
 fi
@@ -23,10 +18,16 @@ if [ $? -eq 0 ]; then
   export LS_FLAGS="--human-readable $LS_FLAGS"
 fi
 
-which ack-grep &> /dev/null && alias ack="ack-grep"
-
 alias ls="ls $LS_FLAGS"
-alias ackf="ack --follow"
+
+eval "$(rbenv init - &> /dev/null)"
+source "$HOME/.rvm/scripts/rvm" &> /dev/null
+source /usr/local/share/python/virtualenvwrapper.sh &> /dev/null
+source `brew --prefix`/etc/autojump.sh &> /dev/null
+source `brew --prefix`/etc/bash_completion &> /dev/null
+source ~/perl5/perlbrew/etc/bashrc &> /dev/null
+
+export PATH=~/bin:$PATH
 export EDITOR=vim
 
 # For any local unversioned modifications
