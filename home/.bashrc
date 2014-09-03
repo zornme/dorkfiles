@@ -23,8 +23,8 @@ alias ls="ls $LS_FLAGS"
 eval "$(rbenv init - &> /dev/null)"
 source "$HOME/.rvm/scripts/rvm" &> /dev/null
 source /usr/local/share/python/virtualenvwrapper.sh &> /dev/null
-source `brew --prefix &> /dev/null`/etc/autojump.sh &> /dev/null
-source `brew --prefix &> /dev/null`/etc/bash_completion &> /dev/null
+source `brew --prefix 2> /dev/null`/etc/autojump.sh &> /dev/null
+source `brew --prefix 2> /dev/null`/etc/bash_completion &> /dev/null
 source ~/perl5/perlbrew/etc/bashrc &> /dev/null
 
 export PATH=~/bin:$PATH
