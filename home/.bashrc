@@ -20,7 +20,7 @@ fi
 
 alias ls="ls $LS_FLAGS"
 
-eval "$(rbenv init - &> /dev/null)"
+eval "$(rbenv init - 2> /dev/null)"
 source "$HOME/.rvm/scripts/rvm" &> /dev/null
 source /usr/local/share/python/virtualenvwrapper.sh &> /dev/null
 source `brew --prefix 2> /dev/null`/etc/autojump.sh &> /dev/null
