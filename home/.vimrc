@@ -83,6 +83,9 @@ let g:ctrlp_follow_symlinks=1
 " don't let ctrlp change its working directory
 let g:ctrlp_working_path_mode=0
 
+" ignore the node_modules directory throughout vim (but especially in ctrlp)
+set wildignore+=*/node_modules/*
+
 " show tabs and trailing
 if has('multi_byte')
   scriptencoding utf-8
