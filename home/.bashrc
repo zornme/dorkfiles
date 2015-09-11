@@ -32,3 +32,5 @@ export EDITOR=vim
 
 # For any local unversioned modifications
 [[ -s "$HOME/.bashrc_local" ]] && source "$HOME/.bashrc_local"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
