@@ -15,9 +15,13 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
 Plugin 'stephpy/vim-yaml'
+Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+
 
 let g:syntastic_enable_perl_checker = 1
 let g:syntastic_perl_checkers = ['perl', 'podchecker']
+
+ let g:airline_powerline_fonts = 1
 
 " So vim-airline always shows
 set laststatus=2
@@ -26,8 +30,8 @@ call vundle#end()
 filetype plugin indent on
 
 syntax on
-colorscheme desert
-set background=dark
+colorscheme Tomorrow-Night-Eighties
+
 set number
 set numberwidth=4
 set tabstop=4
@@ -37,12 +41,10 @@ set mouse=a
 set nowrap
 
 if has('gui_running')
-  colorscheme moria
-  set guifont=Droid\ Sans\ Mono:h12
+  set guifont=Droid\ Sans\ Mono\ for\ Powerline:h12
   set guioptions-=T
   set columns=85
   set lines=42
-  highlight ColorColumn guibg=#252525
   set colorcolumn=80
 endif
 
@@ -116,3 +118,16 @@ set tags+=tags;$HOME
 vmap <Leader>b :<C-U>!svn blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 vmap <Leader>g :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 vmap <Leader>h :<C-U>!hg blame -fu <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+
+" The Silver Searcher
+" https://robots.thoughtbot.com/faster-grepping-in-vim
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
