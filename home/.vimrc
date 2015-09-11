@@ -97,6 +97,8 @@ endif
 map  :ls
 
 " F2 to trim trailing whitespace
+" https://stackoverflow.com/questions/24148991/vim-is-inserting-q-when-i-hit-f2
+map <Esc>OQ :%s/\s\+$//g
 map <F2> :%s/\s\+$//g
 
 " jj as <Esc> in insert mode
