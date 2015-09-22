@@ -133,3 +133,7 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
+
+" Call attention to characters outside of the ASCII range
+syntax match nonASCII "[^\x00-\x7F]"
+highlight link nonASCII SpellBad
