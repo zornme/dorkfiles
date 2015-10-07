@@ -5,7 +5,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'vim-scripts/moria'
-Plugin 'ervandew/supertab'
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'c9s/perlomni.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'matchit.zip'
 Plugin 'jelera/vim-javascript-syntax'
@@ -96,15 +97,12 @@ if has('multi_byte')
 endif
 
 " enter key to list buffers
-map  :ls
+map <CR> :ls<CR>
 
 " F2 to trim trailing whitespace
 " https://stackoverflow.com/questions/24148991/vim-is-inserting-q-when-i-hit-f2
 map <Esc>OQ :%s/\s\+$//g
 map <F2> :%s/\s\+$//g
-
-" jj as <Esc> in insert mode
-imap jj <Esc>
 
 "" keep swapfiles from cluttering up pwd
 set dir=~/.vim/.swap//,/var/tmp//,/tmp//,.
@@ -137,3 +135,33 @@ endif
 " Call attention to characters outside of the ASCII range
 syntax match nonASCII "[^\x00-\x7F]"
 highlight link nonASCII SpellBad
+
+let g:neocomplete#enable_at_startup = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  " For no inserting <CR> key.
+  return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
