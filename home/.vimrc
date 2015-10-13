@@ -32,6 +32,8 @@ filetype plugin indent on
 
 syntax on
 colorscheme Tomorrow-Night-Eighties
+" Tomorrow-Night-Eighties misses this for perl
+hi perlStatement  ctermfg=176 guifg=#cc99cc
 
 set number
 set numberwidth=4
@@ -165,3 +167,4 @@ endif
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
