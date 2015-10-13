@@ -33,7 +33,7 @@ filetype plugin indent on
 syntax on
 colorscheme Tomorrow-Night-Eighties
 " Tomorrow-Night-Eighties misses this for perl
-hi perlStatement  ctermfg=176 guifg=#cc99cc
+hi perlStatement ctermfg=209 guifg=#f99157
 
 set number
 set numberwidth=4
