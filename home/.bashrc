@@ -27,7 +27,7 @@ source `brew --prefix 2> /dev/null`/etc/autojump.sh &> /dev/null
 source `brew --prefix 2> /dev/null`/etc/bash_completion &> /dev/null
 source ~/perl5/perlbrew/etc/bashrc &> /dev/null
 
-export PATH=~/bin:/usr/local/bin:$PATH
+export PATH=~/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export EDITOR=vim
 
 # For any local unversioned modifications
