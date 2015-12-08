@@ -25,6 +25,8 @@ SAVEHIST=100000
 HISTFILE=~/.zsh_history
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
 
+DISABLE_AUTO_TITLE="true"
+
 if ! zgen saved; then
     echo "Creating a zgen save"
 
