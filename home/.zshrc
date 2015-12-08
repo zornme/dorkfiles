@@ -1,11 +1,15 @@
 # load zgen
 source "${HOME}/.homesick/repos/dorkfiles/zgen/zgen.zsh"
 
-eval "$(rbenv init - 2> /dev/null)"
-source "$HOME/.rvm/scripts/rvm" &> /dev/null
-source /usr/local/share/python/virtualenvwrapper.sh &> /dev/null
+if which rbenv > /dev/null;
+    then eval "$(rbenv init -)"
+fi
+
+[[ -f "$HOME/.rvm/scripts/rvm"  ]] && source "$HOME/.rvm/scripts/rvm"
+[[ -f "/usr/local/share/python/virtualenvwrapper.sh"  ]] && source "/usr/local/share/python/virtualenvwrapper.sh"
+[[ -f "$HOME/perl5/perlbrew/etc/bashrc"  ]] && source "$HOME/perl5/perlbrew/etc/bashrc"
+
 source `brew --prefix 2> /dev/null`/etc/autojump.sh &> /dev/null
-source ~/perl5/perlbrew/etc/bashrc &> /dev/null
 
 export PATH=~/bin:/usr/local/bin:$PATH
 export EDITOR=vim
