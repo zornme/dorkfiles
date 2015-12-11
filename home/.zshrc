@@ -5,10 +5,10 @@ if which rbenv > /dev/null;
     then eval "$(rbenv init -)"
 fi
 
-[[ -f "$HOME/.path.sh"  ]] && source "$HOME/.path.sh"
 [[ -f "$HOME/.rvm/scripts/rvm"  ]] && source "$HOME/.rvm/scripts/rvm"
 [[ -f "/usr/local/share/python/virtualenvwrapper.sh"  ]] && source "/usr/local/share/python/virtualenvwrapper.sh"
 [[ -f "$HOME/perl5/perlbrew/etc/bashrc"  ]] && source "$HOME/perl5/perlbrew/etc/bashrc"
+[[ -f "$HOME/.path.sh"  ]] && source "$HOME/.path.sh"
 
 source `brew --prefix 2> /dev/null`/etc/autojump.sh &> /dev/null
 
