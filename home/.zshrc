@@ -24,6 +24,9 @@ setopt correct
 # Share your history across all your terminal windows
 setopt share_history
 
+# One less tab to get the completion behavior I like
+setopt MENU_COMPLETE
+
 # Keep a ton of history.
 HISTSIZE=100000
 SAVEHIST=100000
