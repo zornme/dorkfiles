@@ -7,7 +7,7 @@ call vundle#begin()
 Plugin 'vim-scripts/moria'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'c9s/perlomni.vim'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'matchit.zip'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'vim-scripts/Align'
@@ -17,6 +17,7 @@ Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
 Plugin 'stephpy/vim-yaml'
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+Plugin 'trotter/autojump.vim'
 
 
 let g:syntastic_enable_perl_checker = 1
