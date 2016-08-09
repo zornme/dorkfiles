@@ -49,3 +49,17 @@ if ! zgen saved; then
     # save all to init script
     zgen save
 fi
+
+# Rerun the last command and capture its output to a tempfile. Open the tempfile
+# in $EDITOR and afterward, if the file is changed, execute it.
+#
+# Useful for manipulating the output of things like `git status`.
+ugh()
+{
+    tmpfile=$(mktemp)
+    eval `fc -ln -1` > $tmpfile
+    MD5=$(md5 $tmpfile)
+    $EDITOR "$tmpfile"
+    [[ $MD5 != $(md5 $tmpfile) ]] && zsh "$tmpfile"
+    rm "$tmpfile"
+}
