@@ -18,12 +18,29 @@ Plugin 'scrooloose/syntastic'
 Plugin 'stephpy/vim-yaml'
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Plugin 'trotter/autojump.vim'
+" github flavored markdown  needs to be installed (`brew install grip`)
+Plugin 'JamshedVesuna/vim-markdown-preview'
+" proselint needs to be installed (`pip install proselint`)
+Plugin 'amperser/proselint', {'rtp': 'plugins/vim/syntastic_proselint'}
 
+let vim_markdown_preview_hotkey='<C-m>'
+" Use github glavored markdown via `grip`
+let vim_markdown_preview_github=1 
+" Render preview on buffer write and display images
+let vim_markdown_preview_toggle=2
 
 let g:syntastic_enable_perl_checker = 1
 let g:syntastic_perl_checkers = ['perl', 'podchecker']
 
- let g:airline_powerline_fonts = 1
+" language-check needs to be installed (pip3 install langauge-check)
+" language_check isn't working for markdown yet yet
+let g:syntastic_markdown_checkers = ['language_check', 'proselint']
+let g:syntastic_markdown_language_check_args = '--language=en-US'
+
+let g:syntastic_text_checkers = ['language_check', 'proselint']
+let g:syntastic_text_language_check_args = '--language=en-US'
+
+let g:airline_powerline_fonts = 1
 
 " So vim-airline always shows
 set laststatus=2
