@@ -18,6 +18,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'stephpy/vim-yaml'
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Plugin 'trotter/autojump.vim'
+Plugin 'vimwiki/vimwiki'
 " github flavored markdown  needs to be installed (`brew install grip`)
 Plugin 'JamshedVesuna/vim-markdown-preview'
 " proselint needs to be installed (`pip install proselint`)
@@ -186,3 +187,4 @@ endif
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
+let g:vimwiki_list = [{'path': '~/Dropbox\ \(Personal\)/Documents/wiki/'}]
