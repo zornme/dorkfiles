@@ -3,10 +3,10 @@
 mafredri/zsh-async
 
 # Additional completion definitions for Zsh
-# zsh-users/zsh-completions
+zsh-users/zsh-completions
 
 # Fish-like autosuggestions for zsh
-# zsh-users/zsh-autosuggestions branch:develop
+zsh-users/zsh-autosuggestions
 
 # Zsh port of the fish shell's history search
 # zsh-users/zsh-history-substring-search
