@@ -2,3 +2,4 @@
 .DS_Store
 vim/.vim/bundle
 vim/.vim/.netrwhist
+zsh/.localrc.zsh
