@@ -1,0 +1,18 @@
+# Runs asynchronous tasks in zsh without requiring any external tools
+# used by many themes
+mafredri/zsh-async
+
+# Additional completion definitions for Zsh
+# zsh-users/zsh-completions
+
+# Fish-like autosuggestions for zsh
+# zsh-users/zsh-autosuggestions branch:develop
+
+# Zsh port of the fish shell's history search
+# zsh-users/zsh-history-substring-search
+
+# Fish shell like syntax highlighting for zsh
+zsh-users/zsh-syntax-highlighting
+
+# Pure theme
+sindresorhus/pure
