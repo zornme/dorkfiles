@@ -10,6 +10,10 @@ setopt share_history
 # One less tab to get the completion behavior I like
 # setopt MENU_COMPLETE
 setopt MENU_COMPLETE
+
+# Tweak ^w behavior
+export WORDCHARS='*?.[]~=&;!#$%^(){}<>'
+
 # Enable tab completions
 autoload -Uz compinit
 typeset -i updated_at=$(date +'%j' -r ~/.zcompdump 2>/dev/null || stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)
