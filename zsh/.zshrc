@@ -8,7 +8,6 @@ export EDITOR=vim
 setopt share_history
 
 # One less tab to get the completion behavior I like
-# setopt MENU_COMPLETE
 setopt MENU_COMPLETE
 
 # Tweak ^w behavior
