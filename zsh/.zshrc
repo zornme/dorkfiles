@@ -8,6 +8,11 @@ export EDITOR=vim
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '\C-x\C-e' edit-command-line
+
+# Use ctrl+enter to accept and execute autosuggestions
+bindkey '^{' autosuggest-accept
+bindkey '^}' autosuggest-execute
+
 # Share your history across all your terminal windows
 setopt share_history
 
