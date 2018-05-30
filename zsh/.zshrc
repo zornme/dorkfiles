@@ -4,6 +4,10 @@ source ~/.zsh-plugins.sh
 export PATH=~/bin:/usr/local/bin:$PATH
 export EDITOR=vim
 
+# Bash style command line editing with ^c^e
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '\C-x\C-e' edit-command-line
 # Share your history across all your terminal windows
 setopt share_history
 
