@@ -1,9 +1,3 @@
-[submodule "zgen"]
-	path = zgen
-	url = git@github.com:tarjoilija/zgen.git
 [submodule "vim/.vim/bundle/Vundle.vim"]
 	path = vim/.vim/bundle/Vundle.vim
-	url = https://github.com/VundleVim/Vundle.vim.git
-[submodule "/Users/matt.zorn/.dotfiles/vim/.vim/bundle/Vundle"]
-	path = /Users/matt.zorn/.dotfiles/vim/.vim/bundle/Vundle
 	url = git@github.com:VundleVim/Vundle.vim.git
