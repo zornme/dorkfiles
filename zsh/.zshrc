@@ -22,6 +22,15 @@ setopt MENU_COMPLETE
 # Tweak ^w behavior
 export WORDCHARS='*?.[]~=&;!#$%^(){}<>'
 
+# eval "$(fasd --init posix-alias zsh-hook)"
+# Initialize and cache fasd
+fasd_cache="$HOME/.fasd-init-bash"
+if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+    fasd --init posix-alias zsh-hook >| "$fasd_cache"
+fi
+source "$fasd_cache"
+unset fasd_cache
+
 # Enable tab completions
 autoload -Uz compinit
 typeset -i updated_at=$(date +'%j' -r ~/.zcompdump 2>/dev/null || stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)
