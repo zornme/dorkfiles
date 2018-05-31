@@ -1,4 +1,5 @@
 .swap
 .DS_Store
 vim/.vim/.netrwhist
+vim/.vim/bundle
 zsh/.localrc.zsh
