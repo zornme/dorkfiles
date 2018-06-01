@@ -16,8 +16,7 @@ bindkey '^}' autosuggest-execute
 # Share your history across all your terminal windows
 setopt share_history
 
-# One less tab to get the completion behavior I like
-setopt MENU_COMPLETE
+zstyle ':completion:*' menu select=1
 
 # Tweak ^w behavior
 export WORDCHARS='*?.[]~=&;!#$%^(){}<>'
