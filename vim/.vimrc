@@ -33,6 +33,7 @@ set undodir=~/.vim/.undo
 
 nnoremap <leader>u :MundoToggle<CR>
 
+let g:yankring_history_dir = '~/.vim/'
 nnoremap <leader>p :YRShow<CR>
 
 let g:airline_powerline_fonts = 1
