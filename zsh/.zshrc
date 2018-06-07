@@ -30,6 +30,10 @@ fi
 source "$fasd_cache"
 unset fasd_cache
 
+# Add contextual searching to up/down arrows
+bindkey '^[[A' up-line-or-search
+bindkey '^[[B' down-line-or-search
+
 # Enable tab completions
 autoload -Uz compinit
 typeset -i updated_at=$(date +'%j' -r ~/.zcompdump 2>/dev/null || stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)
