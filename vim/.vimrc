@@ -31,6 +31,10 @@ let g:syntastic_perl_checkers = ['perl', 'podchecker']
 set undofile
 set undodir=~/.vim/.undo
 
+nnoremap <leader>u :MundoToggle<CR>
+
+nnoremap <leader>p :YRShow<CR>
+
 let g:airline_powerline_fonts = 1
 
 " So vim-airline always shows
