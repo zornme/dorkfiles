@@ -20,6 +20,10 @@ Plugin 'simnalamburt/vim-mundo'
 Plugin 'vim-scripts/YankRing.vim'
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 
+" Remap leader to space
+nnoremap <SPACE> <Nop>
+let mapleader=" "
+
 let g:syntastic_enable_perl_checker = 1
 let g:syntastic_perl_checkers = ['perl', 'podchecker']
 
