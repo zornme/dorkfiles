@@ -17,6 +17,7 @@ Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
 Plugin 'stephpy/vim-yaml'
 Plugin 'simnalamburt/vim-mundo'
+Plugin 'vim-scripts/YankRing.vim'
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 
 let g:syntastic_enable_perl_checker = 1
