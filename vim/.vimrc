@@ -16,10 +16,15 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
 Plugin 'stephpy/vim-yaml'
+Plugin 'simnalamburt/vim-mundo'
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 
 let g:syntastic_enable_perl_checker = 1
 let g:syntastic_perl_checkers = ['perl', 'podchecker']
+
+" Enable persistent undo so that undo history persists across vim sessions
+set undofile
+set undodir=~/.vim/.undo
 
 let g:airline_powerline_fonts = 1
 
