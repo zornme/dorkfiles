@@ -7,7 +7,6 @@ call vundle#begin()
 Plugin 'vim-scripts/moria'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'c9s/perlomni.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'matchit.zip'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'vim-scripts/Align'
@@ -18,6 +17,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'stephpy/vim-yaml'
 Plugin 'simnalamburt/vim-mundo'
 Plugin 'vim-scripts/YankRing.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 
 " Remap leader to space
