@@ -17,7 +17,7 @@ Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
 Plugin 'stephpy/vim-yaml'
 Plugin 'simnalamburt/vim-mundo'
-Plugin 'vim-scripts/YankRing.vim'
+" Plugin 'vim-scripts/YankRing.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 
