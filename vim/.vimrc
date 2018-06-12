@@ -4,6 +4,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-scripts/moria'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'c9s/perlomni.vim'
