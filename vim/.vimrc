@@ -19,7 +19,8 @@ Plugin 'stephpy/vim-yaml'
 Plugin 'simnalamburt/vim-mundo'
 " Plugin 'vim-scripts/YankRing.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
-Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+Plugin 'elixir-editors/vim-elixir'
+Plugin 'chriskempson/base16-vim'
 
 " Remap leader to space
 nnoremap <SPACE> <Nop>
@@ -46,7 +47,7 @@ call vundle#end()
 filetype plugin indent on
 
 syntax on
-colorscheme Tomorrow-Night-Eighties
+colorscheme base16-tomorrow-night-eighties
 " Tomorrow-Night-Eighties misses this for perl
 hi perlStatement ctermfg=209 guifg=#f99157
 
@@ -59,11 +60,12 @@ set mouse=a
 set nowrap
 
 if has('gui_running')
-  set guifont=Droid\ Sans\ Mono\ for\ Powerline:h12
+  set guifont=Fira\ Code\ Regular:h12
   set guioptions-=T
   set columns=85
   set lines=42
   set colorcolumn=80
+  set macligatures
 endif
 
 " shut the fuck up
@@ -81,11 +83,6 @@ set history=1000
 
 " hide rather than destroy buffers
 set hidden
-
-" set current working directory to that of the current buffer
-if has("autochdir")
-  set autochdir
-endif
 
 " show last command and highlight size
 set ruler
@@ -182,3 +179,18 @@ endif
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+
+" Z - cd to recent / frequent directories
+command! -nargs=* Z :call Z(<f-args>)
+function! Z(...)
+  let cmd = 'fasd -d -e printf'
+  for arg in a:000
+    let cmd = cmd . ' ' . arg
+  endfor
+  let path = system(cmd)
+  if isdirectory(path)
+    echo path
+    exec 'cd' fnameescape(path)
+  endif
+endfunction
