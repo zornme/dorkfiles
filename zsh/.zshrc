@@ -4,6 +4,9 @@ source ~/.zsh-plugins.sh
 export PATH=~/bin:/usr/local/bin:$PATH
 export EDITOR=vim
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
 # Bash style command line editing with ^c^e
 autoload -U edit-command-line
 zle -N edit-command-line
