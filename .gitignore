@@ -5,3 +5,5 @@ vim/.vim/.undo
 vim/.vim/.netrwhist
 vim/.vim/bundle
 zsh/.localrc.zsh
+neovim/.config/nvim/plugin
+neovim/.config/nvim/undo
