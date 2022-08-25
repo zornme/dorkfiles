@@ -4,8 +4,20 @@ source ~/.zsh-plugins.sh
 export PATH=~/bin:/usr/local/bin:$PATH
 export EDITOR=vim
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+
+if [ "$(arch)" = "arm64" ]; then
+    eval $(/opt/homebrew/bin/brew shellenv);
+else
+    eval $(/usr/local/bin/brew shellenv);
+fi
+
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 # Bash style command line editing with ^c^e
 autoload -U edit-command-line
