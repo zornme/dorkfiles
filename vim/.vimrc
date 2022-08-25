@@ -6,7 +6,6 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-scripts/moria'
-Plugin 'Shougo/neocomplete.vim'
 Plugin 'c9s/perlomni.vim'
 Plugin 'matchit.zip'
 Plugin 'jelera/vim-javascript-syntax'
@@ -21,6 +20,12 @@ Plugin 'simnalamburt/vim-mundo'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'elixir-editors/vim-elixir'
 Plugin 'chriskempson/base16-vim'
+
+Plugin 'Shougo/ddc.vim'
+Plugin 'vim-denops/denops.vim'
+Plugin 'Shougo/ddc-around'
+Plugin 'Shougo/ddc-matcher_head'
+Plugin 'Shougo/ddc-sorter_rank'
 
 " Remap leader to space
 nnoremap <SPACE> <Nop>
@@ -47,9 +52,6 @@ call vundle#end()
 filetype plugin indent on
 
 syntax on
-colorscheme base16-tomorrow-night-eighties
-" Tomorrow-Night-Eighties misses this for perl
-hi perlStatement ctermfg=209 guifg=#f99157
 
 set number
 set numberwidth=4
@@ -59,11 +61,17 @@ set expandtab " father forgive me for i have sinned
 set mouse=a
 set nowrap
 
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+
 if has('gui_running')
-  set guifont=Fira\ Code\ Regular:h12
+  set guifont=Fira\ Code:h12
+  set antialias
   set guioptions-=T
-  set columns=85
-  set lines=42
+  set columns=96
+  set lines=46
   set colorcolumn=80
   set macligatures
 endif
@@ -150,37 +158,6 @@ endif
 syntax match nonASCII "[^\x00-\x7F]"
 highlight link nonASCII SpellBad
 
-let g:neocomplete#enable_at_startup = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  " For no inserting <CR> key.
-  return pumvisible() ? "\<C-y>" : "\<CR>"
-endfunction
-
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-
-" For perlomni.vim setting.
-" https://github.com/c9s/perlomni.vim
-let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-
-
 " Z - cd to recent / frequent directories
 command! -nargs=* Z :call Z(<f-args>)
 function! Z(...)
@@ -194,3 +171,40 @@ function! Z(...)
     exec 'cd' fnameescape(path)
   endif
 endfunction
+
+
+" Customize global settings
+" Use around source.
+" https://github.com/Shougo/ddc-around
+call ddc#custom#patch_global('sources', ['around'])
+
+" Use matcher_head and sorter_rank.
+" https://github.com/Shougo/ddc-matcher_head
+" https://github.com/Shougo/ddc-sorter_rank
+call ddc#custom#patch_global('sourceOptions', {
+      \ '_': {
+      \   'matchers': ['matcher_head'],
+      \   'sorters': ['sorter_rank']},
+      \ })
+
+" Change source options
+call ddc#custom#patch_global('sourceOptions', {
+      \ 'around': {'mark': 'A'},
+      \ })
+call ddc#custom#patch_global('sourceParams', {
+      \ 'around': {'maxSize': 500},
+      \ })
+
+" Mappings
+
+" <TAB>: completion.
+inoremap <silent><expr> <TAB>
+\ ddc#map#pum_visible() ? '<C-n>' :
+\ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
+\ '<TAB>' : ddc#map#manual_complete()
+
+" <S-TAB>: completion back.
+inoremap <expr><S-TAB>  ddc#map#pum_visible() ? '<C-p>' : '<C-h>'
+
+" Use ddc.
+call ddc#enable()
