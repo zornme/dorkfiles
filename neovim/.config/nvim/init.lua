@@ -1,6 +1,7 @@
 require('packer').startup(function()
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
+    use 'mbbill/undotree'
     use 'neovim/nvim-lspconfig'
     use 'RRethy/nvim-base16'
     use 'sheerun/vim-polyglot'

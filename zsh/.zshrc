@@ -5,6 +5,8 @@ export PATH=~/bin:/usr/local/bin:$PATH
 export EDITOR=vim
 
 
+export HOMEBREW_NO_AUTO_UPDATE=1
+
 if [ "$(arch)" = "arm64" ]; then
     eval $(/opt/homebrew/bin/brew shellenv);
 else
