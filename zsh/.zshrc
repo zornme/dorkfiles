@@ -87,3 +87,5 @@ ugh()
 
 # Machine specific configs
 source "$HOME/.localrc.zsh"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -9,13 +9,15 @@ require('packer').startup(function()
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
+
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        'nvim-telescope/telescope.nvim',
         requires = {
             {'nvim-lua/plenary.nvim'},
             {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
         }
     }
+
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -112,7 +114,9 @@ require('nvim-treesitter.configs').setup {
     },
 }
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+require('lspconfig').perlls.setup{}
 
 require('lspconfig').elixirls.setup{
     cmd = { "/Users/matt.zorn/bin/elixir-ls/language_server.sh" },
@@ -134,7 +138,7 @@ vim.api.nvim_set_keymap('n', '<CR>', '<cmd>:ls<CR>', {noremap = true, silent = t
 vim.api.nvim_set_keymap('n', '<C-p>', '<cmd>lua require("telescope.builtin").find_files(require("telescope.themes").get_dropdown({}))<CR>', {noremap = true, nowait = true, silent = true})
 -- vim.api.nvim_set_keymap('n', '<C-p>', '<cmd>lua require("telescope.builtin").find_files()<CR>', {noremap = true, nowait = true, silent = true})
 -- Ctrl-G fuzzy grepping
--- vim.api.nvim_set_keymap('n', '<C-g>', '<cmd>lua require("telescope.builtin").live_grep(require("telescope.themes").get_dropdown({}))<CR>', {noremap = true, nowait = true, silent = true})
+vim.api.nvim_set_keymap('n', '<C-g>', '<cmd>lua require("telescope.builtin").live_grep(require("telescope.themes").get_dropdown({}))<CR>', {noremap = true, nowait = true, silent = true})
 
 -- Enable persistent undo so that undo history persists across vim sessions
 vim.opt.undofile = true
@@ -200,3 +204,4 @@ vim.cmd[[set tags+=tags;$HOME]]
 -- vmap <Leader>b :<C-U>!svn blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 -- vmap <Leader>g :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 -- vmap <Leader>h :<C-U>!hg blame -fu <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+--
