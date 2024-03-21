@@ -5,7 +5,8 @@ vim/.vim/.undo
 vim/.vim/.netrwhist
 vim/.vim/bundle
 zsh/.localrc.zsh
-neovim/.config/nvim/plugin
-neovim/.config/nvim/undo
 *.swp
 *.swo
+neovim/.config/nvim/lazy-lock.json
+neovim/.config/nvim/swap
+neovim/.config/nvim/undo
