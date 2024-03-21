@@ -13,8 +13,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("plugins")
-
 -- and now for my silly little settings
 -- Enable persistent undo so that undo history persists across vim sessions
 vim.opt.undofile = true
@@ -73,3 +71,5 @@ vim.opt.autoread = true
 
 -- Search upward for tags until reaching the home directory
 vim.cmd[[set tags+=tags;$HOME]]
+
+require("lazy").setup("plugins")
