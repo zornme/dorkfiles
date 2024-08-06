@@ -205,3 +205,27 @@ vim.cmd[[set tags+=tags;$HOME]]
 -- vmap <Leader>g :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 -- vmap <Leader>h :<C-U>!hg blame -fu <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 --
+--
+vim.o.guifont ="FiraCode_Nerd_Font_Mono:h12"
+
+if vim.g.neovide then
+    vim.keymap.set('v', '<D-c>', '"+y') -- Copy
+
+    vim.keymap.set(
+        {'n', 'v', 's', 'x', 'o', 'i', 'l', 'c', 't'},
+        '<D-v>',
+        function() vim.api.nvim_paste(vim.fn.getreg('+'), true, -1) end,
+        { noremap = true, silent = true }
+        )
+    vim.cmd('let g:neovide_position_animation_length = 0')
+    vim.g.neovide_scroll_animation_far_lines = 0
+    vim.g.neovide_cursor_animation_length = 0
+end
+
+
+
+-- only set if NEOVIDE_CWD is set
+-- if vim.fn.getenv("NEOVIDE_CWD") ~= '' then
+if tostring(vim.fn.getenv("NEOVIDE_CWD")) ~= "vim.NIL" then
+  vim.api.nvim_set_current_dir(vim.fn.getenv("NEOVIDE_CWD"))
+end
